@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label for="input">Inserisci Numero</label>
+    <input type="tel" id="input" placeholder="inserisci numero" size="10" maxlength="10">
+    <h2>Numero censurato: <span id="risultato"></span></h2>
+
+    <script>
+    
+    let risultato = '';
+    const input = document.getElementById('input');
+        function censura(a) {
+            if (a.length <= 4) {
+                risultato += a;
+            } else {
+                for (let i = 0; i < (a.length - 4); i++) {
+                    risultato += '#';
+                };
+                risultato += a.substring((a.length - 4), a.length);
+            };
+            document.getElementById('risultato').innerHTML = risultato;
+        };
+
+        input.addEventListener('keyup', () => { censura(input.value)});
+        input.addEventListener('keyup', () => {risultato = ''});
+    
+
+
+    </script>
+</body>
+
+</html>
